@@ -1,10 +1,16 @@
 import type { NextPage } from 'next'
-import styles from '../styles/Home.module.css'
+import styled from 'styled-components';
 
 const Home: NextPage = () => {
+  const Title = styled.h1`
+    color:red;
+  `;
+
   return (
-    <div className={styles.container}>
-      Pokedex
+    <div>
+      <Title>
+        Pokedex
+      </Title>
     </div>
   )
 }
