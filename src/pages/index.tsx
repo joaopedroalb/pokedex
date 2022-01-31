@@ -1,16 +1,11 @@
 import type { NextPage } from 'next'
-import styled from 'styled-components';
+import Navbar from '../components/Navbar';
 
 const Home: NextPage = () => {
-  const Title = styled.h1`
-    color:red;
-  `;
 
   return (
     <div>
-      <Title>
-        Pokedex
-      </Title>
+      <Navbar/>
     </div>
   )
 }

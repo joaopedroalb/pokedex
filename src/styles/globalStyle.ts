@@ -1,22 +1,30 @@
 import {createGlobalStyle} from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+    :root {
+        --red:#ff0054;
+    }
+
     html,
     body {
-    padding: 0;
-    margin: 0;
+        padding: 0;
+        margin: 0;
+        background: var(--red);
+    
     }
 
     a {
-    color: inherit;
-    text-decoration: none;
+        color: inherit;
+        text-decoration: none;
     }
 
     * {
-    box-sizing: border-box;
+        
+        font-family: 'Roboto';
+        box-sizing: border-box;
     }
-    h1{
-        color: blue;
+    h1,h2,h3,h4,h5{
+        margin: 0;
     }
 ` 
 
