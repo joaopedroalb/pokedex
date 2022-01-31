@@ -27,7 +27,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Navbar/>
-      <div style={{width:'100%',display:'flex',alignItems:'center',flexDirection:'column'}}>
+      <div style={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center',flexDirection:'row',gap:'1rem',
+                  flexWrap:'wrap', marginTop:'1rem'}}>
       {
         lstPokemons&&
           lstPokemons.map((pokemon,i)=>{

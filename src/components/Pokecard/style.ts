@@ -7,4 +7,10 @@ export const Card = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: 12px;
+    cursor: pointer;
+
+    img{
+        width: 250px;
+    }
 `
