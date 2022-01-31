@@ -8,20 +8,20 @@ type PokeCardProps = {
 }
 
 export default function PokeCard(props:PokeCardProps) {
-
-  const [shiny,setShiny] = useState(false)
-
-
+  
   const pathImageDefault = pokemonImagePathDefault(props.url)
   const pathImageShiny = pokemonImagePathShiny(props.url)
 
+  const [pathImage,setPathImage] = useState(pathImageDefault) 
+
+  
+
   function renderImage(){
-    if(shiny){
-      return <img src={pathImageShiny} alt={props.name} onMouseOut={()=>setShiny(false)}/>
-    }
-      
-    
-    return <img src={pathImageDefault} alt={props.name} onMouseOver={()=>setShiny(true)}/>
+    return <img src={pathImage} 
+                alt={props.name} 
+                onMouseOver={()=>setPathImage(pathImageShiny)}
+                onMouseOut={()=>setPathImage(pathImageDefault)}
+            />
   }
 
   return (
