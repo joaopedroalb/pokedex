@@ -14,7 +14,6 @@ export default function PokeCard(props:PokeCardProps) {
   const {isActive} = useContext(ShinyContext)
   
   const pathImageDefault = pokemonImagePathUrl(props.url,isActive)
-  const pathImageShiny = pokemonImagePathUrl(props.url,true)
   const pokemonNumber = getId(props.url)
 
   const [pathImage,setPathImage] = useState(pathImageDefault) 
@@ -24,8 +23,6 @@ export default function PokeCard(props:PokeCardProps) {
   function renderImage(){
     return <img src={pathImage} 
                 alt={props.name} 
-                onMouseOver={()=>setPathImage(pathImageShiny)}
-                onMouseOut={()=>setPathImage(pathImageDefault)}
             />
   }
 
