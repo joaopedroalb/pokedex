@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar';
 import {pokemonImagePathDefaultById,pokemonImagePathDefaultByUrl,formatNumber,getColorType} from '../../Utils/Functions'
 import {ContainerBg,Content,Info,TypesInfo,HeaderTitle} from './style'
 import {PokemonType} from '../../Data/Enum'
+import TypeBox from '../../components/TypeBox';
 
 type PokemonInfo ={
     name:string,
@@ -58,7 +59,7 @@ export default function PokemonProfile() {
                             <TypesInfo>
                             {
                                 pokemon.types.map((t,i)=>{
-                                    return <p key={i} style={{color:getColorType(t)}}>{t}</p>
+                                    return <TypeBox key={i} name={t} />
                                 })
                             }
                             </TypesInfo>
