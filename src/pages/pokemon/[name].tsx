@@ -1,7 +1,7 @@
 import {useRouter} from 'next/router'
 import { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
-import {pokemonImagePathDefaultById,pokemonImagePathDefaultByUrl,formatNumber,getColorType} from '../../Utils/Functions'
+import {pokemonImagePathDefaultById,pokemonImagePathDefaultByUrl,formatNumber,getBgColorType} from '../../Utils/Functions'
 import {ContainerBg,Content,Info,TypesInfo,HeaderTitle} from './style'
 import {PokemonType} from '../../Data/Enum'
 import TypeBox from '../../components/TypeBox';

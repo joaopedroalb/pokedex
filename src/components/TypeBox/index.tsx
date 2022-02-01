@@ -1,5 +1,5 @@
 import {Box} from './style'
-import {getColorType} from '../../Utils/Functions'
+import {getBgColorType,getFontColorType} from '../../Utils/Functions'
 
 type PokeType = {
     name:string
@@ -9,7 +9,7 @@ export default function TypeBox(props:PokeType) {
     const type = props.name
 
     return (
-    <Box style={{background:getColorType(type)}}>
+    <Box style={{background:getBgColorType(type),color:getFontColorType(type)}}>
         <p>{type}</p>
     </Box>
     );
