@@ -48,3 +48,5 @@ export const HeaderTitle = styled.div`
     display: flex;
     align-items: baseline;
 `
+
+export default ContainerBg
