@@ -14,7 +14,7 @@ const Home: NextPage = () => {
 
   useEffect(()=>{
     async function handleFetch(){
-      const resp = await fetch('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0')
+      const resp = await fetch('https://pokeapi.co/api/v2/pokemon?limit=493&offset=0')
       const data = await resp.json()
       console.log(data)
       setLstPokemons(data.results)
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
     <>
       <Navbar/>
       <div style={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center',flexDirection:'row',gap:'1rem',
-                  flexWrap:'wrap', marginTop:'1rem'}}>
+                  flexWrap:'wrap', marginTop:'1rem', marginBottom:'1rem'}}>
       {
         lstPokemons&&
           lstPokemons.map((pokemon,i)=>{

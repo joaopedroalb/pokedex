@@ -1,16 +1,32 @@
 import styled from "styled-components"
 
 export const Card = styled.div`
-    width: 400px;
+    width: 300px;
     background-color: #ffff;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: 12px;
+    padding: 1rem;
     cursor: pointer;
 
     img{
-        width: 250px;
+        width: 150px;
     }
+
+    transition: 400ms;
+
+    h2{
+        text-transform: capitalize;
+    }
+
+    :hover{
+        transform: scale(1.05);
+    }
+`
+
+export const NumberContainer = styled.span`
+    width: 70%;
+    text-align: start;
 `
