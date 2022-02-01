@@ -12,4 +12,8 @@ export const Items = styled.div`
     flex: 1;
     display: flex;
     justify-content: space-evenly;
+
+    h1{
+        cursor: pointer;
+    }
 `
