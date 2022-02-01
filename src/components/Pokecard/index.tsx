@@ -1,5 +1,5 @@
 import {Card,NumberContainer} from './style'
-import {pokemonImagePathDefault,pokemonImagePathShiny,getId} from '../../Utils/Functions'
+import {pokemonImagePathDefaultByUrl,pokemonImagePathShinyByUrl,getId} from '../../Utils/Functions'
 import { useState } from 'react'
 
 type PokeCardProps = {
@@ -9,8 +9,8 @@ type PokeCardProps = {
 
 export default function PokeCard(props:PokeCardProps) {
   
-  const pathImageDefault = pokemonImagePathDefault(props.url)
-  const pathImageShiny = pokemonImagePathShiny(props.url)
+  const pathImageDefault = pokemonImagePathDefaultByUrl(props.url)
+  const pathImageShiny = pokemonImagePathShinyByUrl(props.url)
   const pokemonNumber = getId(props.url)
 
   const [pathImage,setPathImage] = useState(pathImageDefault) 
