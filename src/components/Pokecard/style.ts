@@ -17,10 +17,6 @@ export const Card = styled.div`
 
     transition: 400ms;
 
-    h2{
-        text-transform: capitalize;
-    }
-
     :hover{
         transform: scale(1.05);
     }

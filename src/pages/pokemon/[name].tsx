@@ -1,7 +1,8 @@
 import {useRouter} from 'next/router'
 import { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
-import {pokemonImagePathDefaultById,pokemonImagePathDefaultByUrl} from '../../Utils/Functions'
+import {pokemonImagePathDefaultById,pokemonImagePathDefaultByUrl,formatNumber} from '../../Utils/Functions'
+import {ContainerBg,Content,Info,TypesInfo,HeaderTitle} from './style'
 
 type PokemonInfo ={
     name:string,
@@ -41,24 +42,31 @@ export default function PokemonProfile() {
     },[pokemonName])
 
     return (
-        <div>
+        <ContainerBg>
             <Navbar/>
             {
                 pokemon&&(
-                    <div>
+                    <Content>
                         <img src={pokemonImagePathDefaultById(pokemon.numberId)}/>
-                        <h1>{pokemon.name}</h1>
-                        <p>{pokemon.numberId}</p>
-                        {
-                            pokemon.types.map((t,i)=>{
-                                return <p key={i}>{t}</p>
-                            })
-                        }
-                        <p>{pokemon.weigth}</p>
-                        <p>{pokemon.height}</p>
-                    </div>
+                        <Info>
+                            <HeaderTitle>
+                                <h1 className='Title'>{pokemon.name}</h1>
+                                <p>Nº{formatNumber(pokemon.numberId)}</p>
+                            </HeaderTitle>
+                            
+                            <TypesInfo>
+                            {
+                                pokemon.types.map((t,i)=>{
+                                    return <p key={i}>{t}</p>
+                                })
+                            }
+                            </TypesInfo>
+                            <p>Weigth {pokemon.weigth/10} kg</p>
+                            <p>Height {pokemon.height/10} m</p>
+                        </Info>
+                    </Content>
                 )
             }
-        </div>
+        </ContainerBg>
     );
 }

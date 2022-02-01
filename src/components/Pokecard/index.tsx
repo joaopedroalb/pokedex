@@ -1,5 +1,5 @@
 import {Card,NumberContainer} from './style'
-import {pokemonImagePathDefaultByUrl,pokemonImagePathShinyByUrl,getId} from '../../Utils/Functions'
+import {pokemonImagePathDefaultByUrl,pokemonImagePathShinyByUrl,getId,formatNumber} from '../../Utils/Functions'
 import { useState } from 'react'
 import Link from 'next/link'
 
@@ -26,22 +26,12 @@ export default function PokeCard(props:PokeCardProps) {
             />
   }
 
-  function formatNumber(){
-    if(pokemonNumber.length>=3)
-      return pokemonNumber
-
-    if(pokemonNumber.length==2)
-      return "0"+pokemonNumber
-
-    return "00"+pokemonNumber
-  }
-
   return (
     <Link href={`/pokemon/${props.name}`} passHref>
       <Card>
           {renderImage()}
-          <NumberContainer>Nº{formatNumber()}</NumberContainer>
-          <h2>{props.name}</h2>
+          <NumberContainer>Nº{formatNumber(pokemonNumber)}</NumberContainer>
+          <h2 className='Title'>{props.name}</h2>
       </Card>
     </Link>
   );

@@ -24,3 +24,13 @@ export const pokemonImagePathShinyByUrl = (url:string) =>{
 
     return pokemonImagePathShinyById(pokemonId)
 }
+
+export const formatNumber = (pokemonNumber:string) =>{
+    if(pokemonNumber.length>=3)
+      return pokemonNumber
+
+    if(pokemonNumber.length==2)
+      return "0"+pokemonNumber
+
+    return "00"+pokemonNumber
+  }
