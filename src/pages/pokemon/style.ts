@@ -11,7 +11,7 @@ export const ContainerBg = styled.div`
 export const Content = styled.div`
     width: 80%;
     margin: 1rem;
-    padding: 1rem;
+    padding: 1rem 2rem 4rem 4rem;
     background-color: var(--white);
     border-radius: 20px;
     min-height: 400px;
@@ -26,7 +26,7 @@ export const Content = styled.div`
     }
 
     img{
-        width: 300px;
+        width: 350px;
     }
     
 `

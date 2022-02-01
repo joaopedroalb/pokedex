@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import { useEffect,useState } from 'react';
+import ListCard from '../components/ListCard';
 import Navbar from '../components/Navbar';
 import PokeCard from '../components/Pokecard';
 
@@ -27,15 +28,9 @@ const Home: NextPage = () => {
   return (
     <>
       <Navbar/>
-      <div style={{width:'100%',display:'flex',alignItems:'center',justifyContent:'center',flexDirection:'row',gap:'1rem',
-                  flexWrap:'wrap', marginTop:'1rem', marginBottom:'1rem'}}>
       {
-        lstPokemons&&
-          lstPokemons.map((pokemon,i)=>{
-           return <PokeCard key ={i} name={pokemon.name} url={pokemon.url} />
-          })
+        lstPokemons&&<ListCard list={lstPokemons}/>
       }
-      </div>
     </>
   )
 }
