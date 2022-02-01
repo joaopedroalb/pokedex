@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import { useEffect,useState } from 'react';
 import ListCard from '../components/ListCard';
 import Navbar from '../components/Navbar';
+import ShinyStar from '../components/ShinyStar';
 
 type Pokemon = {
   name:string
@@ -27,6 +28,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Navbar/>
+      <ShinyStar/>
       {
         lstPokemons&&<ListCard list={lstPokemons}/>
       }

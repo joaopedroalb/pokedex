@@ -12,16 +12,10 @@ type PokeCardProps = {
 export default function PokeCard(props:PokeCardProps) {
 
   const {isActive} = useContext(ShinyContext)
-  
-  const pathImageDefault = pokemonImagePathUrl(props.url,isActive)
   const pokemonNumber = getId(props.url)
 
-  const [pathImage,setPathImage] = useState(pathImageDefault) 
-
-  
-
   function renderImage(){
-    return <img src={pathImage} 
+    return <img src={pokemonImagePathUrl(props.url,isActive)} 
                 alt={props.name} 
             />
   }

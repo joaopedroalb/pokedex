@@ -6,6 +6,7 @@ import {ContainerBg,Content,Info,TypesInfo,HeaderTitle} from './style'
 import {PokemonType} from '../../Data/Enum'
 import TypeBox from '../../components/TypeBox';
 import { ShinyContext } from '../../Contexts/ShinyContext';
+import ShinyStar from '../../components/ShinyStar';
 
 type PokemonInfo ={
     name:string,
@@ -48,6 +49,7 @@ export default function PokemonProfile() {
     return (
         <ContainerBg>
             <Navbar/>
+            <ShinyStar/>
             {
                 pokemon&&(
                     <Content>
