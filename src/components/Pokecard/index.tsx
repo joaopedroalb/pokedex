@@ -1,7 +1,8 @@
 import {Card,NumberContainer} from './style'
-import {pokemonImagePathDefaultByUrl,pokemonImagePathShinyByUrl,getId,formatNumber} from '../../Utils/Functions'
-import { useState } from 'react'
+import {pokemonImagePathUrl,getId,formatNumber} from '../../Utils/Functions'
+import { useContext, useState } from 'react'
 import Link from 'next/link'
+import { ShinyContext } from '../../Contexts/ShinyContext'
 
 type PokeCardProps = {
     name:string
@@ -9,9 +10,11 @@ type PokeCardProps = {
 }
 
 export default function PokeCard(props:PokeCardProps) {
+
+  const {isActive} = useContext(ShinyContext)
   
-  const pathImageDefault = pokemonImagePathDefaultByUrl(props.url)
-  const pathImageShiny = pokemonImagePathShinyByUrl(props.url)
+  const pathImageDefault = pokemonImagePathUrl(props.url,isActive)
+  const pathImageShiny = pokemonImagePathUrl(props.url,true)
   const pokemonNumber = getId(props.url)
 
   const [pathImage,setPathImage] = useState(pathImageDefault) 

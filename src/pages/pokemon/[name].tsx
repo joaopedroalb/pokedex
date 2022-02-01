@@ -1,10 +1,11 @@
 import {useRouter} from 'next/router'
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
-import {pokemonImagePathDefaultById,pokemonImagePathDefaultByUrl,formatNumber,getBgColorType} from '../../Utils/Functions'
+import {formatNumber,getBgColorType,pokemonImagePathById} from '../../Utils/Functions'
 import {ContainerBg,Content,Info,TypesInfo,HeaderTitle} from './style'
 import {PokemonType} from '../../Data/Enum'
 import TypeBox from '../../components/TypeBox';
+import { ShinyContext } from '../../Contexts/ShinyContext';
 
 type PokemonInfo ={
     name:string,
@@ -16,6 +17,7 @@ type PokemonInfo ={
 
 export default function PokemonProfile() {
     const [pokemon,setPokemon] = useState<PokemonInfo|null>(null)
+    const {isActive} = useContext(ShinyContext)
 
     let baseUrl = 'https://pokeapi.co/api/v2/pokemon/'
 
@@ -49,7 +51,7 @@ export default function PokemonProfile() {
             {
                 pokemon&&(
                     <Content>
-                        <img src={pokemonImagePathDefaultById(pokemon.numberId)}/>
+                        <img src={pokemonImagePathById(pokemon.numberId,isActive)}/>
                         <Info>
                             <HeaderTitle>
                                 <h1 className='Title'>{pokemon.name}</h1>

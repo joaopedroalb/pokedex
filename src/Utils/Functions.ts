@@ -6,25 +6,16 @@ export const getId = (path:string) =>{
 
     return id;
 }
-export const pokemonImagePathDefaultById = (id:string) =>{
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`
+
+export const pokemonImagePathById = (id:string,isShiny:boolean) =>{
+    const shinyBool = isShiny? 'shiny/':''
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${shinyBool}${id}.png`
 }
 
-export const pokemonImagePathShinyById = (id:string) =>{
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/${id}.png`
-}
-
-
-export const pokemonImagePathDefaultByUrl = (url:string) =>{
-    const pokemonId = getId(url)
-    
-    return pokemonImagePathDefaultById(pokemonId)
-}
-
-export const pokemonImagePathShinyByUrl = (url:string) =>{
+export const pokemonImagePathUrl = (url:string,isShiny:boolean) =>{
     const pokemonId = getId(url)
 
-    return pokemonImagePathShinyById(pokemonId)
+    return pokemonImagePathById(pokemonId,isShiny)
 }
 
 export const formatNumber = (pokemonNumber:string) =>{
