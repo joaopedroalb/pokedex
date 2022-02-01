@@ -1,3 +1,5 @@
+import {PokemonType} from '../Data/Enum'
+
 export const getId = (path:string) =>{
     let id = path.replace('https://pokeapi.co/api/v2/pokemon','')
     id = id.replaceAll('/','')
@@ -34,3 +36,9 @@ export const formatNumber = (pokemonNumber:string) =>{
 
     return "00"+pokemonNumber
   }
+
+export const getColorType = (type:string) =>{
+    var pokeType : PokemonType = PokemonType[type as keyof typeof PokemonType];
+
+    return pokeType
+}

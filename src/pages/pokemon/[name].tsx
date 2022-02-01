@@ -1,8 +1,9 @@
 import {useRouter} from 'next/router'
 import { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar';
-import {pokemonImagePathDefaultById,pokemonImagePathDefaultByUrl,formatNumber} from '../../Utils/Functions'
+import {pokemonImagePathDefaultById,pokemonImagePathDefaultByUrl,formatNumber,getColorType} from '../../Utils/Functions'
 import {ContainerBg,Content,Info,TypesInfo,HeaderTitle} from './style'
+import {PokemonType} from '../../Data/Enum'
 
 type PokemonInfo ={
     name:string,
@@ -57,7 +58,7 @@ export default function PokemonProfile() {
                             <TypesInfo>
                             {
                                 pokemon.types.map((t,i)=>{
-                                    return <p key={i}>{t}</p>
+                                    return <p key={i} style={{color:getColorType(t)}}>{t}</p>
                                 })
                             }
                             </TypesInfo>

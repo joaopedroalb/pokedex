@@ -1,3 +1,20 @@
-export type PokemonType = "bug" | "dark" | "dragon" | "eletric" | "fairy" | "fighting" | "fire" | "flying" |
-                         "ghost" | "grass " | "ground" | "ice" | "normal" | "poison" | "psychic" | "rock" |
-                          "steel" | "water"
+export enum PokemonType {
+                        bug="#3b9950" , 
+                        dark="#5a5979" , 
+                        dragon="#448c96" , 
+                        eletric="#fafa70" , 
+                        fairy="#e71368" , 
+                        fighting="#ef6138" , 
+                        fire="#fd4c5a" , 
+                        flying="#93b2c7",
+                        ghost="#906790", 
+                        grass="#27cb4f", 
+                        ground="#6e491f", 
+                        ice="#a6dcf5", 
+                        normal="#a17682", 
+                        poison="#9b69d9", 
+                        psychic="#f81c91", 
+                        rock="#8b3e21",
+                        steel="#43b992", 
+                        water="#1652e1",
+                    }
