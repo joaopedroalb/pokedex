@@ -15,7 +15,7 @@ const Home: NextPage = () => {
 
   useEffect(()=>{
     async function handleFetch(){
-      const resp = await fetch('https://pokeapi.co/api/v2/pokemon?limit=493&offset=0')
+      const resp = await fetch('https://pokeapi.co/api/v2/pokemon?limit=36&offset=0')
       const data = await resp.json()
       console.log(data)
       setLstPokemons(data.results)
