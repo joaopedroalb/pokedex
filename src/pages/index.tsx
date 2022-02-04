@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { useEffect,useState } from 'react';
+import { useEffect,useState,useCallback } from 'react';
 import ListCard from '../components/ListCard';
 import Navbar from '../components/Navbar';
 import ShinyStar from '../components/ShinyStar';
@@ -18,12 +18,16 @@ const Home: NextPage = () => {
 
   
 
-  async function handleScroll(){
-    if(window.innerHeight + document.documentElement.scrollTop + 2 < document.documentElement.offsetHeight || loading || limit > 600)
+  const handleScroll = useCallback(
+    async() => {
+      if(window.innerHeight + document.documentElement.scrollTop + 2 < document.documentElement.offsetHeight || loading || limit > 600)
       return
     
-    setLimit((value)=>value+36)
-  }
+    setLimit(limit+36)
+    },
+
+    [limit,loading],
+  );
 
   useEffect(()=>{
     async function handleFetch(){
@@ -32,13 +36,14 @@ const Home: NextPage = () => {
       setLstPokemons(data.results)
     }
     handleFetch()
+    if(limit>600)setLoading(true)
   },[limit])
 
 
   useEffect(()=>{
     window.addEventListener('scroll',handleScroll)
     return () => window.removeEventListener('scroll',handleScroll)
-  },[])
+  },[handleScroll])
   
 
   return (
