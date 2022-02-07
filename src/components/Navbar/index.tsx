@@ -10,11 +10,12 @@ export default function Navbar() {
           <Link href='/' passHref>
             <h1>Pokemon</h1>
           </Link>
-            
-            
         </Items>
 
-        <Image src={Pokeball} width={70} height={70}/>
+        <a href="https://github.com/joaopedroalb/pokedex">
+          <Image src={Pokeball} width={70} height={70} alt="Poke Ball"/>
+        </a>
+
         <Items>
           <h1>Types</h1>
         </Items>
