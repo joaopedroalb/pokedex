@@ -12,10 +12,7 @@ type Pokemon = {
 
 const Home: NextPage = () => {
 
-  const [loading,setLoading] = useState(false)
-
   const [limit,setLimit] = useState(0)
-
   
 
   const handleScroll = useCallback(
