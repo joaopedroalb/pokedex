@@ -5,7 +5,7 @@ export const Container = styled.div`
     left: 92%;
     bottom: 5vh;
     margin-right: 1rem;
-    color: aqua;
+    color: var(--light-blue);
 
     svg{
         cursor: pointer;

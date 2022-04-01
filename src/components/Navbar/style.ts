@@ -5,7 +5,7 @@ export const Nav = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #FFFF;
+    background-color: var(--white);
 `
 
 export const Items = styled.div`

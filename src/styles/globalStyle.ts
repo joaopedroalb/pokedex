@@ -4,6 +4,7 @@ const GlobalStyle = createGlobalStyle`
     :root {
         --red:#ff0054;
         --white:#FFFF;
+        --light-blue:#90e0ef;
     }
 
     html,
