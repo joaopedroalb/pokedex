@@ -3,12 +3,20 @@ import axios from 'axios'
 
 export function useFetch<T = unknown>(url: string) {
     const [data, setData] = useState<T | null>(null)
+    const [error,setError] = useState<Error |null>(null)
+    const [isFetching,setIsFetching] = useState(true)
 
     useEffect(() => {
         axios.get(url)
             .then(response => {
                 console.log(response.data)
                 setData(response.data.results)
+            })
+            .catch(err=>{
+                setError(err)
+            })
+            .finally(()=>{
+                setIsFetching(false)
             })
     }, [url])
 
@@ -24,5 +32,5 @@ export function useFetch<T = unknown>(url: string) {
         }
     }
 
-    return {data, fetchData}
+    return {data, fetchData, isFetching,error}
 }
