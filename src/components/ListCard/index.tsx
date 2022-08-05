@@ -16,15 +16,17 @@ export default function ListCard({list}:ListCardProps) {
   const [filter,setFilter] = useState('') 
 
   function handleChange(value:string){
-    setFilter(value)
+    setFilter(value.toLowerCase())
   }
+
+  const FilterList = list.filter(pokemon => pokemon.name.toLowerCase().includes(filter))
 
   return (
     <ContainerBg>
       <SearchPokemon onChangeEvent={handleChange}/>
       <Container>
             {
-                list.filter(x=>x.name.includes(filter)).map((pokemon,i)=>{
+                FilterList.map((pokemon,i)=>{
                     return <PokeCard key ={i} name={pokemon.name} url={pokemon.url} />
                 })
             }
