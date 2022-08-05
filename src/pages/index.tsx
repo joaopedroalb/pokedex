@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import { useEffect,useState,useCallback } from 'react';
 import ListCard from '../components/ListCard';
+import PokeLoading from '../components/Loading/PokeLoading';
 import Navbar from '../components/Navbar';
 import ShinyStar from '../components/ShinyStar';
 import { useFetch } from '../hooks/useFetch';
@@ -26,22 +27,30 @@ const Home: NextPage = () => {
     [limit],
   );
 
-  const {data:lstPokemon} = useFetch<Pokemon[]>(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=0`)
+  const {data:lstPokemon, isFetching} = useFetch<Pokemon[]>(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=0`)
 
 
   useEffect(()=>{
     window.addEventListener('scroll',handleScroll)
     return () => window.removeEventListener('scroll',handleScroll)
   },[handleScroll])
+
+  const PageLayout = () => {
+    return (
+      <>
+        <Navbar/>
+        <ShinyStar/>
+        {
+          lstPokemon&&<ListCard list={lstPokemon}/>
+        }
+      </>
+    )
+  } 
   
 
   return (
     <>
-      <Navbar/>
-      <ShinyStar/>
-      {
-         lstPokemon&&<ListCard list={lstPokemon}/>
-      }
+      {isFetching?<PokeLoading isLoading={isFetching}/>:PageLayout()}
     </>
   )
 }
