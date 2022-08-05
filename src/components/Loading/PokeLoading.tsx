@@ -12,7 +12,7 @@ export default function PokeLoading({isLoading}:LoadingProps) {
 
   return (
     <LoadingBg>
-      <Image src={LoadingGif} alt="Pokeball spinning loading" className='imageContent'/>
+      <Image src={LoadingGif} alt="Pokeball spinning loading" className='imageContent' layout="fill" objectFit='cover' />
     </LoadingBg>
   )
 }
