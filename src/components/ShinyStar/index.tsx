@@ -8,9 +8,7 @@ export default function ShinyStar() {
 
     return (
     <Container onClick={()=>setIsActive((value)=>!value)}>
-        {
-            isActive?<AiFillStar size={70}/> : <AiOutlineStar size={70}/>
-        }
+        { isActive ? <AiFillStar size={70}/> : <AiOutlineStar size={70}/> }
     </Container>
     )
 }
